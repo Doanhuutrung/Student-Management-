@@ -1,0 +1,159 @@
+#include <fstream>
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+
+using namespace std;
+
+int inputId()
+{
+	int id;
+	do{
+		printf("\n Enter ID of Student");
+		scanf("%d",&id);
+	}while(id<1||id>999);
+	return id;
+}
+
+int inputName(char name[])
+{
+	do{
+		printf("\n Enter Name of student:");
+		fflush(stdin);
+		gets(name);
+	}while(strlen(name)==0);
+}
+
+float inputgrades()
+{
+	float grades;
+	do{
+		printf("\n Enter Grade of Student: ");
+		scanf("%f",&grades);
+		
+	}while(grades<0);
+	return grades;
+}
+
+void StudentList(student studentList[]int n)
+	{
+		int i;
+		printf ("\nEnter the number of student: ");
+		scanf("%d",&n);
+		for(i=0,i++)
+		{
+			printf("\n Enter info of %d student",i+1);
+			studentList[i].id=enterID();
+			enterName(studentList[i].name);
+			studentList[i].gra=enterGra();
+		}
+		return n;
+	}
+	
+int displaystudent(student studentList[],int n)
+{
+	int i;
+	printf("\n |%-10s||%-10s||%-10s|","Id","Name","Grades");
+	for(i=0;i<n;i++)
+	{
+		printf("\n |%-10d||%-10s||%-10.11f|",studentList[i].id,studentList[i].name,studentList[i].grades);
+	}
+}
+
+int main()
+	{
+	student StudentList[100];
+	int choice,n;
+	int found,ct,i;
+	int findIndex[100];
+	do{
+		choice =getUserChoice();
+		switch(choice)
+		{
+			case 1:
+				printf("\n Enter number of student in the list: ");
+				scanf("%/d, &n");
+				createstudent(studentList,n);
+			break;
+			case 2:
+				displaystudent(studentList,n);
+			break;
+			case 3:
+				found = findHightestgrades(studentList,n);
+				displaystudent(studentList,found);
+			break;
+			case 4:
+				found = findLowestgrade(studenList,n);
+				displaystudent(studentList,found);
+			break;
+			case 5:
+				printf("\n Exits");
+				return 0;		
+		}			
+	}while(choice>0&&choice<6)
+	return 0;
+}
+
+float findHightestgrades(student studentList[],float n)
+		{
+			int maxIndex,i;
+			maxIndex =0;
+			for(i=1;i<n,i++)
+			{
+				if(studentList[maxIndex].grades>studentList[i].grades)
+				{
+					maxIndex =i;
+					break;
+				}
+			}
+			return maxIndex;
+		}
+float findLowestgrades(student studentList[],float n)
+		{
+			int minIndex,i;
+			minIndex =0;
+			for(i=1;i<n,i++)
+			{
+				if(studentList[minIndex].grades<studentList[i].grades)
+				{
+					minIndex =i;
+					break;
+				}
+			}
+			return minIndex;
+		}
+		
+		void createstudent(student studentList[],int n)
+		{
+			int i;
+			for(i=0;i<n;i++)
+			{
+				studentList[i].id=intputId();
+				inputName(studentList[i].name);
+				studentList[i].grades = inputgrades();		
+			}
+		 } 
+		 
+		for (i=0;i<n;i++)
+		{
+			StudentList[i].id= inputId();
+			inputName(studentlist[i].name)
+			studentList[i].grades = inputgrades()
+		}
+		
+		int getUserChoice ()
+		{
+			int choice;
+			printf("\n ______________________/_\_____________________");
+			printf("\n |         Student Grades Management Program    |");
+			printf("\n | Press 1: Enter List of Students              |");
+			printf("\n | Press 2: Enter Single of Students            |");
+			printf("\n | Press 3: Display List of Students            |");
+			printf("\n | Press 4: Find Student who has highest grades |");
+			printf("\n | Press 5: Find Student who has lowest grades  |");
+			printf("\n **********************************************");
+			printf("\n Please enter choice: ");
+			printf("%d",&choice);
+			return choice;
+		}
+	
