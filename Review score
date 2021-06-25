@@ -1,0 +1,141 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StudentManagementSystem
+{
+    class Student
+    {
+static void Main(string[] args)
+        private string Name;
+        private int Gender;
+        private double MathsMark, PhysicsMark, ChemistryMark;
+
+        
+        public void InputStudent()
+        {
+            Console.Write("\nInput Your Full Name: ");
+            Name = Console.ReadLine();
+
+            Console.Write("\n------------- Input Gender -------------");
+            Console.Write("\n1. Male");
+            Console.Write("\n2. Fmale");
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nInput Gender ");
+                    Gender = int.Parse(Console.ReadLine());
+
+                    if (Gender < 1 || Gender > 2)
+                    {
+                        Console.Write("\nInvalid gender. Please check again !");
+                    }
+                    else
+                    {
+                        break; 
+                    }
+                }
+                catch
+                {
+                    Console.Write("\nInvalid data type. Please check again !");
+                }
+            }
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nInput MathsMark: ");
+                    MathsMark = double.Parse(Console.ReadLine());
+
+                    if (MathsMark < 0 || MathsMark > 10)
+                    {
+                        Console.Write("\nInvalid Math Mark . Please check again !");
+                    }
+                    else
+                    {
+                        break; 
+                    }
+                }
+                catch
+                {
+                    Console.Write("\nInvalid data type. Please check again !");
+                }
+            }
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nInput PhysicsMark: ");
+                    PhysicsMark = double.Parse(Console.ReadLine());
+
+                    if (PhysicsMark < 0 || PhysicsMark > 10)
+                    {
+                        Console.Write("\nInvalid Physics Mark. Please check again!");
+                    }
+                    else
+                    {
+                        break; 
+                    }
+                }
+                catch
+                {
+                    Console.Write("\nInvalid data type. Please check again !");
+                }
+            }
+
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nInput ChemistryMark: ");
+                    ChemistryMark = double.Parse(Console.ReadLine());
+
+                    if (ChemistryMark < 0 || ChemistryMark > 10)
+                    {
+                        Console.Write("\nInvalid Chemistry Mark. Please check again! !");
+                    }
+                    else
+                    {
+                        break; 
+                    }
+                }
+                catch
+                {
+                    Console.Write("\nInvalid data type. Please check again !");
+                }
+            }
+        }
+
+        public double GRADEPOINTAVERAGE()
+        {
+            return (MathsMark + PhysicsMark + ChemistryMark) / 3;
+        }
+
+        public string studentclassification()
+        {
+            double GPA = GRADEPOINTAVERAGE();
+
+            if (GPA < 5)
+            {
+                return "Not Pass";
+            }
+            if (GPA < 7)
+            {
+                return "Pass";
+            }
+            if (GPA < 8)
+            {
+                return "credit";
+            }
+            if (GPA < 9)
+            {
+                return "distinction";
+            }
+            return "high distinction";
+        }
+
+    }
+}
